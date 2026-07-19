@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>StyleHub - Fashion & Apparel</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+
+<body>
+
+    <!-- Header -->
+    <header class="header">
+
+        <div class="logo">
+            <span>Style</span>Hub
+        </div>
+
+        <nav class="navbar">
+            <a href="#home">Home</a>
+            <a href="#shop">Shop</a>
+            <a href="#categories">Categories</a>
+            <a href="#about">About</a>
+            <a href="#contact">Contact</a>
+        </nav>
+
+        <div class="header-icons">
+
+            <div class="search-box">
+                <input type="text" id="searchInput" placeholder="Search products...">
+                <i class="fa-solid fa-magnifying-glass"></i>
+            </div>
+
+            <i class="fa-regular fa-heart"></i>
+
+            <div class="cart-icon" onclick="openCart()">
+                <i class="fa-solid fa-cart-shopping"></i>
+                <span id="cartCount">0</span>
+            </div>
+
+        </div>
+
+    </header>
+
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+
+        <div class="hero-content">
+
+            <p class="small-title">NEW COLLECTION 2026</p>
+
+            <h1>
+                Define Your<br>
+                <span>Unique Style</span>
+            </h1>
+
+            <p>
+                Discover the latest fashion trends designed for
+                confidence, comfort and individuality.
+            </p>
+
+            <a href="#shop" class="btn">
+                Shop Now
+                <i class="fa-solid fa-arrow-right"></i>
+            </a>
+
+        </div>
+
+        <div class="hero-image">
+
+            <img src="https://images.unsplash.com/photo-1529139574466-a303027c1d8b?auto=format&fit=crop&w=900&q=80"
+                alt="Fashion Model">
+
+        </div>
+
+    </section>
+
+
+    <!-- Features -->
+    <section class="features">
+
+        <div class="feature">
+
+            <i class="fa-solid fa-truck"></i>
+
+            <div>
+                <h3>Free Shipping</h3>
+                <p>On orders over ₹999</p>
+            </div>
+
+        </div>
+
+
+        <div class="feature">
+
+            <i class="fa-solid fa-rotate-left"></i>
+
+            <div>
+                <h3>Easy Returns</h3>
+                <p>7 days return policy</p>
+            </div>
+
+        </div>
+
+
+        <div class="feature">
+
+            <i class="fa-solid fa-shield-halved"></i>
+
+            <div>
+                <h3>Secure Payment</h3>
+                <p>100% secure checkout</p>
+            </div>
+
+        </div>
+
+
+        <div class="feature">
+
+            <i class="fa-solid fa-headset"></i>
+
+            <div>
+                <h3>24/7 Support</h3>
+                <p>We're here to help</p>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- Categories -->
+    <section class="categories" id="categories">
+
+        <div class="section-heading">
+
+            <p>EXPLORE COLLECTIONS</p>
+
+            <h2>Shop By Category</h2>
+
+        </div>
+
+
+        <div class="category-grid">
+
+            <div class="category-card">
+
+                <img src="https://images.unsplash.com/photo-1617137968427-85924c800a22?auto=format&fit=crop&w=600&q=80">
+
+                <div>
+
+                    <h3>Men's Fashion</h3>
+
+                    <button onclick="filterProducts('Men')">
+                        Shop Now
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <div class="category-card">
+
+                <img src="https://images.unsplash.com/photo-1496747611176-843222e1e57c?auto=format&fit=crop&w=600&q=80">
+
+                <div>
+
+                    <h3>Women's Fashion</h3>
+
+                    <button onclick="filterProducts('Women')">
+                        Shop Now
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <div class="category-card">
+
+                <img src="https://images.unsplash.com/photo-1523381210434-271e8be1f52b?auto=format&fit=crop&w=600&q=80">
+
+                <div>
+
+                    <h3>Accessories</h3>
+
+                    <button onclick="filterProducts('Accessories')">
+                        Shop Now
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- Products -->
+    <section class="products-section" id="shop">
+
+        <div class="section-heading">
+
+            <p>OUR COLLECTION</p>
+
+            <h2>Trending Products</h2>
+
+        </div>
+
+
+        <div class="filter-buttons">
+
+            <button class="active" onclick="filterProducts('All')">
+                All
+            </button>
+
+            <button onclick="filterProducts('Men')">
+                Men
+            </button>
+
+            <button onclick="filterProducts('Women')">
+                Women
+            </button>
+
+            <button onclick="filterProducts('Accessories')">
+                Accessories
+            </button>
+
+        </div>
+
+
+        <div class="product-grid" id="productGrid"></div>
+
+    </section>
+
+
+    <!-- Offer Banner -->
+    <section class="offer">
+
+        <div class="offer-content">
+
+            <p>LIMITED TIME OFFER</p>
+
+            <h2>
+                Get 30% Off<br>
+                New Arrivals
+            </h2>
+
+            <p>
+                Use code:
+                <strong>STYLE30</strong>
+            </p>
+
+            <button class="btn">
+                Shop Sale
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <!-- Newsletter -->
+    <section class="newsletter">
+
+        <div>
+
+            <p>STAY UPDATED</p>
+
+            <h2>Join Our Style Community</h2>
+
+            <p>
+                Get exclusive offers, fashion tips and new collection updates.
+            </p>
+
+        </div>
+
+
+        <form onsubmit="subscribe(event)">
+
+            <input type="email"
+                placeholder="Enter your email address"
+                required>
+
+            <button type="submit">
+                Subscribe
+            </button>
+
+        </form>
+
+    </section>
+
+
+    <!-- Footer -->
+    <footer id="contact">
+
+        <div class="footer-container">
+
+
+            <div class="footer-column">
+
+                <h2>
+                    <span>Style</span>Hub
+                </h2>
+
+                <p>
+                    Fashion that defines you.
+                    Discover your style with StyleHub.
+                </p>
+
+
+                <div class="social-icons">
+
+                    <i class="fa-brands fa-instagram"></i>
+
+                    <i class="fa-brands fa-facebook"></i>
+
+                    <i class="fa-brands fa-twitter"></i>
+
+                    <i class="fa-brands fa-youtube"></i>
+
+                </div>
+
+            </div>
+
+
+            <div class="footer-column">
+
+                <h3>Quick Links</h3>
+
+                <a href="#home">Home</a>
+
+                <a href="#shop">Shop</a>
+
+                <a href="#categories">Categories</a>
+
+                <a href="#about">About Us</a>
+
+            </div>
+
+
+            <div class="footer-column">
+
+                <h3>Customer Service</h3>
+
+                <a href="#">Contact Us</a>
+
+                <a href="#">Shipping Policy</a>
+
+                <a href="#">Return Policy</a>
+
+                <a href="#">FAQs</a>
+
+            </div>
+
+
+            <div class="footer-column">
+
+                <h3>Contact</h3>
+
+                <p>
+                    <i class="fa-solid fa-location-dot"></i>
+                    New Delhi, India
+                </p>
+
+                <p>
+                    <i class="fa-solid fa-phone"></i>
+                    +91 98765 43210
+                </p>
+
+                <p>
+                    <i class="fa-solid fa-envelope"></i>
+                    support@stylehub.com
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="copyright">
+
+            <p>
+                © 2026 StyleHub. All Rights Reserved.
+            </p>
+
+        </div>
+
+    </footer>
+
+
+    <!-- Cart Modal -->
+    <div class="cart-modal" id="cartModal">
+
+        <div class="cart-content">
+
+            <div class="cart-header">
+
+                <h2>Your Cart</h2>
+
+                <span onclick="closeCart()">
+
+                    <i class="fa-solid fa-xmark"></i>
+
+                </span>
+
+            </div>
+
+
+            <div id="cartItems"></div>
+
+
+            <div class="cart-total">
+
+                <h3>
+                    Total:
+                    ₹<span id="cartTotal">0</span>
+                </h3>
+
+
+                <button class="checkout-btn"
+                    onclick="goToCheckout()">
+
+                    Proceed to Checkout
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>Checkout - StyleHub</title>
+
+    <link rel="stylesheet"
+        href="style.css">
+
+</head>
+
+
+<body>
+
+
+    <!-- Header -->
+
+    <header class="header">
+
+        <div class="logo">
+
+            <span>Style</span>Hub
+
+        </div>
+
+
+        <a href="index.html"
+            class="back-home">
+
+            ← Continue Shopping
+
+        </a>
+
+    </header>
+
+
+    <!-- Checkout -->
+
+    <section class="checkout-page">
+
+
+        <!-- Checkout Form -->
+
+        <div class="checkout-form">
+
+            <h1>
+                Checkout
+            </h1>
+
+
+            <form onsubmit="placeOrder(event)">
+
+
+                <h2>
+                    Delivery Information
+                </h2>
+
+
+                <input type="text"
+                    placeholder="Full Name"
+                    required>
+
+
+                <input type="email"
+                    placeholder="Email Address"
+                    required>
+
+
+                <input type="tel"
+                    placeholder="Phone Number"
+                    required>
+
+
+                <textarea
+                    placeholder="Complete Address"
+                    required>
+                </textarea>
+
+
+                <input type="text"
+                    placeholder="City"
+                    required>
+
+
+                <input type="text"
+                    placeholder="PIN Code"
+                    required>
+
+
+                <h2>
+                    Payment Method
+                </h2>
+
+
+                <label>
+
+                    <input type="radio"
+                        name="payment"
+                        required>
+
+                    Cash on Delivery
+
+                </label>
+
+
+                <label>
+
+                    <input type="radio"
+                        name="payment">
+
+                    UPI / Online Payment
+
+                </label>
+
+
+                <button type="submit"
+                    class="place-order">
+
+                    Place Order
+
+                </button>
+
+            </form>
+
+        </div>
+
+
+        <!-- Order Summary -->
+
+        <div class="order-summary">
+
+            <h2>
+                Order Summary
+            </h2>
+
+
+            <div id="checkoutItems"></div>
+
+
+            <hr>
+
+
+            <h3>
+
+                Total:
+
+                ₹<span id="checkoutTotal">
+                    0
+                </span>
+
+            </h3>
+
+        </div>
+
+
+    </section>
+
+
+    <script>
+
+        const cart =
+
+            JSON.parse(
+
+                localStorage.getItem("cart")
+
+            ) || [];
+
+
+        const checkoutItems =
+
+            document.getElementById(
+                "checkoutItems"
+            );
+
+
+        const checkoutTotal =
+
+            document.getElementById(
+                "checkoutTotal"
+            );
+
+
+        let total = 0;
+
+
+        if (cart.length === 0) {
+
+            checkoutItems.innerHTML =
+
+                "<p>Your cart is empty.</p>";
+
+        }
+
+
+        cart.forEach(product => {
+
+
+            total += product.price;
+
+
+            checkoutItems.innerHTML += `
+
+                <div class="checkout-item">
+
+
+                    <img src="${product.image}">
+
+
+                    <div>
+
+                        <h4>
+                            ${product.name}
+                        </h4>
+
+
+                        <p>
+                            ₹${product.price}
+                        </p>
+
+                    </div>
+
+                </div>
+
+            `;
+
+        });
+
+
+        checkoutTotal.innerText = total;
+
+
+        function placeOrder(event) {
+
+
+            event.preventDefault();
+
+
+            alert(
+                "🎉 Order placed successfully!"
+            );
+
+
+            localStorage.removeItem(
+                "cart"
+            );
+
+
+            window.location.href =
+                "index.html";
+
+        }
+
+    </script>
+
+
+</body>
+
+</html>
